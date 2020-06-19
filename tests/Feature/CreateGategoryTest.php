@@ -60,6 +60,21 @@ class CreateGategoryTest extends TestCase
      * @return void
      * @test
      */
+    public function a_category_required_min_10_characters_in_description(): void
+    {
+        $response = $this->from(route("categories.create"))->post(route("categories.save"), [
+            "description" => "Lorem"
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route("categories.create"));
+        $response->assertSessionHasErrors("description");
+    }
+
+    /**
+     * @return void
+     * @test
+     */
     public function a_category_required_a_name_and_description_unique(): void
     {
         factory(Category::class)->create([
