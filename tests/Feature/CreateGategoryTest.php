@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -53,6 +54,32 @@ class CreateGategoryTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect(route("categories.create"));
         $response->assertSessionHasErrors("name");
+    }
+
+    /**
+     * @return void
+     * @test
+     */
+    public function a_category_required_a_name_and_description_unique(): void
+    {
+        factory(Category::class)->create([
+            "name"          => "Backend",
+            "description"   => "Desarrollador del lado del servidor"
+        ]);
+
+        $this->assertDatabaseHas("categories", [
+            "name"          => "Backend",
+            "description"   => "Desarrollador del lado del servidor"
+        ]);
+
+        $response = $this->from(route("categories.create"))->post(route("categories.save"), [
+            "name"          => "Backend",
+            "description"   => "Desarrollador del lado del servidor"
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route("categories.create"));
+        $response->assertSessionHasErrors(["name", "description"]);
     }
 
     /**
