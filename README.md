@@ -2,10 +2,11 @@
 <br />
 <p align="center">
   <a href="https://github.com/RuizHerney">
-    <img src="https://raw.githubusercontent.com/RuizHerney/img-repositories/master/19_06_2020_laravel-crud-tdd/laravel-crud-tdd.png?token=AMK6KQ3LDXSVAY2Z4FL5I4C65VAXS" alt="Logo" width="80" height="80">
+    <img src="https://i.imgur.com/sOx2nW6.png" alt="Logo" width="300" height="200">
   </a>
 
   <h3 align="center">LARAVEL CRUD TDD</h3>
+</p>
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
