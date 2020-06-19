@@ -13,9 +13,25 @@ class CreateGategoryTest extends TestCase
      * @return void
      * @test
      */
+    public function a_category_required_name_and_description(): void
+    {
+        $response = $this->from(route("categories.create"))->post(route("categories.save"), [
+            "name"          => "",
+            "description"   => ""
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route("categories.create"));
+        $response->assertSessionHasErrors(["name", "description"]);
+    }
+
+    /**
+     * @return void
+     * @test
+     */
     public function a_user_can_create_category(): void
     {
-        $response = $this->from(route("categories.save"))->post(route("categories.save"), [
+        $response = $this->from(route("categories.create"))->post(route("categories.save"), [
             "name"          => "Backend",
             "description"   => "Desarrollador del lado del servidor"
         ]);
