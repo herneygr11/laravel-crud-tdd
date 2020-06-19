@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RequestCategory;
 use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -22,7 +22,7 @@ class CategoryController extends Controller
         //
     }
 
-    public function saveCategory(Request $request): RedirectResponse
+    public function saveCategory(RequestCategory $request): RedirectResponse
     {
         if (Category::create($request->all())) {
             return redirect()->route("categories.index");
