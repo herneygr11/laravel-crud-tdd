@@ -44,6 +44,21 @@ class CreateGategoryTest extends TestCase
      * @return void
      * @test
      */
+    public function a_category_required_max_50_characters_in_name(): void
+    {
+        $response = $this->from(route("categories.create"))->post(route("categories.save"), [
+            "name" => "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route("categories.create"));
+        $response->assertSessionHasErrors("name");
+    }
+
+    /**
+     * @return void
+     * @test
+     */
     public function a_user_can_create_category(): void
     {
         $response = $this->from(route("categories.create"))->post(route("categories.save"), [
