@@ -24,8 +24,8 @@ class RequestCategory extends FormRequest
     public function rules()
     {
         return [
-            "name"          => "bail|required|min:6|max:50|unique:categories, name" . $this->id,
-            "description"   => "bail|required|min:10|max:200|unique:categories, description" . $this->id,
+            "name"          => "bail|required|min:6|max:50|unique:categories" . $this->id,
+            "description"   => "bail|required|min:10|max:200|unique:categories" . $this->id,
         ];
     }
 }
