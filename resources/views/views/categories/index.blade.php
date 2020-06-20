@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
 @section('main')
+
+<a href="{{ route("categories.create") }}">Crear categoria</a>
 <h3>Categorias</h3>
 
 <table>

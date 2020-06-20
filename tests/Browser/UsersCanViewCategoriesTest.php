@@ -15,15 +15,27 @@ class UsersCanViewCategoriesTest extends DuskTestCase
      * @return void
      * @test
      */
-    public function view_categories()
+    public function view_categories(): void
     {
         $category = factory(Category::class)->create();
 
         $this->browse(function (Browser $browser) use ($category) {
             $browser->visit(route("categories.index"))
-                    ->assertSee($category->name)
-                    ->assertSee($category->description)
-                    ;
+                ->assertSee($category->name)
+                ->assertSee($category->description);
+        });
+    }
+
+    /**
+     * return void
+     * @test
+     */
+    public function view_button_create_category()
+    {
+        $this->browse(function (Browser $browser)  {
+            $browser->visit(route("categories.index"))
+                ->assertSee("Crear categoria")
+            ;
         });
     }
 }
