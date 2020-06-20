@@ -34,7 +34,22 @@ class UsersCanViewCategoriesTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser)  {
             $browser->visit(route("categories.index"))
-                ->assertSee("Crear categoria")
+                ->assertSeeLink("Crear categoria")
+            ;
+        });
+    }
+
+    /**
+     * return void
+     * @test
+     */
+    public function view_button_update_category()
+    {
+        $category = factory(Category::class)->create();
+
+        $this->browse(function (Browser $browser) use ($category)  {
+            $browser->visit(route("categories.index"))
+            ->assertSeeLink("editar")
             ;
         });
     }
