@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get("/category", "CategoryController@index")->name("categories.index");
 Route::get("/category/create", "CategoryController@createCategory")->name("categories.create");
 Route::post("/category/save", "CategoryController@saveCategory")->name("categories.save");
+Route::get("/category/edit/{category:id}", "CategoryController@editCategory")->name("categories.edit");
+Route::put("/category/update/{category:id}", "CategoryController@updateCategory")->name("categories.update");
