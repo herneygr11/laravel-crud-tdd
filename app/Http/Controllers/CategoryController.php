@@ -33,4 +33,11 @@ class CategoryController extends Controller
         }
     }
 
+    public function updateCategory(RequestCategory $request, Category $category)
+    {
+        if($category->update($request->all())){
+            return redirect()->route("categories.index");
+        }
+    }
+
 }
