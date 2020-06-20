@@ -19,6 +19,9 @@
             <td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
             <td>{{ $category->description }}</td>
+            <td>
+                <a href="{{ route("categories.edit", $category->id) }}">editar</a>
+            </td>
         </tr>
         @endforeach
     </tbody>
