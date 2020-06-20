@@ -11,12 +11,23 @@ class UpdateCategoryTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * @test
+     */
+    public function get_edit_gategory()
+    {
+        $category = factory(Category::class)->create();
+
+        $response = $this->get(route("categories.edit", $category->id));
+
+        $response->assertStatus(200);
+    }
+
+    /**
      * @return void
      * @test
      */
     public function a_user_can_update_category(): void
     {
-        $this->withoutExceptionHandling();
         $category = factory(Category::class)->create();
 
         $response = $this->from(route("categories.edit", $category->id))->put(route("categories.update", $category->id), [
