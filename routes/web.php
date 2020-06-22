@@ -23,3 +23,4 @@ Route::get("/category/create", "CategoryController@createCategory")->name("categ
 Route::post("/category/save", "CategoryController@saveCategory")->name("categories.save");
 Route::get("/category/edit/{category:id}", "CategoryController@editCategory")->name("categories.edit");
 Route::put("/category/update/{category:id}", "CategoryController@updateCategory")->name("categories.update");
+Route::delete("/category/delete/{category:id}", "CategoryController@deleteCategory")->name("categories.delete");
