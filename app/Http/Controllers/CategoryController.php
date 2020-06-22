@@ -10,7 +10,8 @@ use Illuminate\Http\RedirectResponse;
 
 class CategoryController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         //
     }
 
@@ -40,7 +41,14 @@ class CategoryController extends Controller
 
     public function updateCategory(RequestCategory $request, Category $category)
     {
-        if($category->update($request->all())){
+        if ($category->update($request->all())) {
+            return redirect()->route("categories.index");
+        }
+    }
+
+    public function DeleteCategory(Category $category)
+    {
+        if ($category->delete()) {
             return redirect()->route("categories.index");
         }
     }
