@@ -22,7 +22,8 @@ class UsersCanupdateCategoriesTest extends DuskTestCase
         $category = factory(Category::class)->create();
 
         $this->browse(function (Browser $browser) use ($category) {
-            $browser->visit(route("categories.edit", $category->id))
+            $browser->visit(route("categories.index"))
+                ->clickLink("editar")
                 ->assertSee('Editar Categoria')
                 ->clear("name")
                 ->clear("description")
