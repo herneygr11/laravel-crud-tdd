@@ -31,6 +31,21 @@ class CreateRoleTest extends TestCase
      * @return void
      * @test
      */
+    public function a_role_required_min_5_characters_in_nmae(): void
+    {
+        $response = $this->from(route("roles.create"))->post(route("roles.save"), [
+            "name"  => "admi",
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route("roles.create"));
+        $response->assertSessionHasErrors("name");
+    }
+
+    /**
+     * @return void
+     * @test
+     */
     public function a_user_can_craete_roles(): void
     {
         $this->withoutExceptionHandling();
