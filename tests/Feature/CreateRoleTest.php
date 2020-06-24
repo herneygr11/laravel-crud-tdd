@@ -14,6 +14,23 @@ class CreateRoleTest extends TestCase
      * @return void
      * @test
      */
+    public function a_role_required_name_description_and_guard_name(): void
+    {
+        $response = $this->from(route("roles.create"))->post(route("roles.save"), [
+            "name"          => "",
+            "description"   => "",
+            "guard_name"    => "",
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route("roles.create"));
+        $response->assertSessionHasErrors(["name", "description", "guard_name"]);
+    }
+
+    /**
+     * @return void
+     * @test
+     */
     public function a_user_can_craete_roles(): void
     {
         $this->withoutExceptionHandling();
