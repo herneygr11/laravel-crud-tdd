@@ -31,7 +31,23 @@ class CreateRoleTest extends TestCase
      * @return void
      * @test
      */
-    public function a_role_required_min_5_characters_in_nmae(): void
+    public function a_role_required_name_and_description_alpha_spaces(): void
+    {
+        $response = $this->from(route("roles.create"))->post(route("roles.save"), [
+            "name"          => "123",
+            "description"   => "123",
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route("roles.create"));
+        $response->assertSessionHasErrors(["name", "description"]);
+    }
+
+    /**
+     * @return void
+     * @test
+     */
+    public function a_role_required_min_5_characters_in_name(): void
     {
         $response = $this->from(route("roles.create"))->post(route("roles.save"), [
             "name"  => "admi",
@@ -48,8 +64,6 @@ class CreateRoleTest extends TestCase
      */
     public function a_user_can_craete_roles(): void
     {
-        $this->withoutExceptionHandling();
-
         $rolePost = [
             "name"          => "Desarrollador Backend",
             "description"   => "Desarrolaldor del lado del servidor",
