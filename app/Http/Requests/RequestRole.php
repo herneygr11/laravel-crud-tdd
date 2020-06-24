@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\AlphaSpaces;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RequestRole extends FormRequest
@@ -24,8 +25,8 @@ class RequestRole extends FormRequest
     public function rules()
     {
         return [
-            "name"          => "bail|required|min:5|",
-            "description"   => "bail|required",
+            "name"          => "bail|required|min:5|alpha_spaces",
+            "description"   => "bail|required|alpha_spaces",
             "guard_name"    => "bail|required"
         ];
     }
