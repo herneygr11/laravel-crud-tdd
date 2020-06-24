@@ -162,6 +162,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        //Custom validation rules
+        \App\Providers\CustomValidationRulesProvider::class,
+
         /*
          * Package Service Providers...
          */
