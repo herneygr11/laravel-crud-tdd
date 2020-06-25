@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RequestCategory extends FormRequest
@@ -23,9 +24,11 @@ class RequestCategory extends FormRequest
      */
     public function rules()
     {
+        $category = isset($this->category->id) ? "," . $this->category->id : "";
+
         return [
-            "name"          => "bail|required|min:6|max:50|unique:categories" . $this->id,
-            "description"   => "bail|required|min:10|max:200|unique:categories" . $this->id,
+            "name"          => "bail|required|min:6|max:50|unique:categories,name" . $category,
+            "description"   => "bail|required|min:10|max:200|unique:categories,description" . $category,
         ];
     }
 }
