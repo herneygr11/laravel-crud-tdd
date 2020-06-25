@@ -7,8 +7,14 @@
         @method("PUT")
 
         <input type="text" name="name" value="{{$category->name}}">
+        @if ($errors->has("name"))
+            <span>{{ $errors->first("name") }}</span>
+        @endif
         <br>
         <textarea name="description" cols="30" rows="10">{{$category->description}}</textarea>
+        @if ($errors->has("description"))
+            <span>{{ $errors->first("description") }}</span>
+        @endif
 
         <a href="{{ route("categories.index") }}">Cancelar</a>
         <button id="update-category">Guardar</button>
