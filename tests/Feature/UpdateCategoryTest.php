@@ -100,6 +100,28 @@ class UpdateCategoryTest extends TestCase
      * @return void
      * @test
      */
+    public function a_user_can_update_category_with_the_same_name_and_the_same_category():void
+    {
+        $category = factory(Category::class)->create();
+
+        $response = $this->from(route("categories.edit", $category->id))->put(route("categories.update", $category->id), [
+            "name"          => $category->name,
+            "description"   => $category->description,
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route("categories.index"));
+
+        $this->assertDatabaseHas("categories", [
+            "name"          => $category->name,
+            "description"   => $category->description,
+        ]);
+    }
+
+    /**
+     * @return void
+     * @test
+     */
     public function a_user_can_update_category(): void
     {
         $category = factory(Category::class)->create();
