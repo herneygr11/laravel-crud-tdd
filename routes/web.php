@@ -29,3 +29,4 @@ Route::delete("/category/delete/{category:id}", "CategoryController@deleteCatego
 Route::get('/role', 'RoleController@index')->name("roles.index");
 Route::get('/role/create', 'RoleController@createRole')->name("roles.create");
 Route::post('/role/save', 'RoleController@saveRole')->name("roles.save");
+Route::get('/role/edit/{id:role}', 'RoleController@editRole')->name("roles.edit");
