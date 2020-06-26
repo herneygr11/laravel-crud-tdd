@@ -29,4 +29,10 @@ class RoleController extends Controller
             return redirect()->route("roles.index");
         }
     }
+
+    public function editRole(Role $role)
+    {
+        return view("views.roles.edit", compact('role'));
+    }
+
 }
