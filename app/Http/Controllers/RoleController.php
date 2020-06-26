@@ -35,4 +35,11 @@ class RoleController extends Controller
         return view("views.roles.edit", compact('role'));
     }
 
+    public function updateRole(RequestRole $request, Role $role)
+    {
+        if ($role->update($request->all())) {
+            return redirect()->route("roles.index");
+        }
+    }
+
 }
