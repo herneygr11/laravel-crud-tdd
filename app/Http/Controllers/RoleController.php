@@ -25,7 +25,7 @@ class RoleController extends Controller
 
     public function saveRole(RequestRole $request)
     {
-        if(Role::create($request->all())){
+        if (Role::create($request->all())) {
             return redirect()->route("roles.index");
         }
     }
@@ -38,6 +38,13 @@ class RoleController extends Controller
     public function updateRole(RequestRole $request, Role $role)
     {
         if ($role->update($request->all())) {
+            return redirect()->route("roles.index");
+        }
+    }
+
+    public function deleteRole(Role $role)
+    {
+        if ($role->delete()) {
             return redirect()->route("roles.index");
         }
     }
