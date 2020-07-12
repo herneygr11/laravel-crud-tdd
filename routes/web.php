@@ -29,6 +29,6 @@ Route::delete("/category/delete/{category:id}", "CategoryController@deleteCatego
 Route::get('/role', 'RoleController@index')->name("roles.index");
 Route::get('/role/create', 'RoleController@createRole')->name("roles.create");
 Route::post('/role/save', 'RoleController@saveRole')->name("roles.save");
-Route::get('/role/edit/role:id', 'RoleController@editRole')->name("roles.edit");
+Route::get('/role/edit/{role:id}', 'RoleController@editRole')->name("roles.edit");
 Route::put('/role/update/{role:id}', 'RoleController@updateRole')->name("roles.update");
 Route::delete('/role/delete/{role:id}', 'RoleController@deleteRole')->name("roles.delete");
