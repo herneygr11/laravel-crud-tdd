@@ -21,10 +21,10 @@
             <td>{{ $role->description }}</td>
             <td>
                 <a href="{{ route('roles.edit', $role->id) }}">
-                    Editar
+                    editar
                 </a>
                 <form action="{{ route('roles.delete', $role->id) }}" method="post">
-                    <button type="submit">Eliminar</button>
+                    <button type="submit">eliminar</button>
                 </form>
             </td>
         </tr>

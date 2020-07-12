@@ -25,8 +25,8 @@ class UserCanViewRolesTest extends DuskTestCase
                 ->assertSee($role->description)
                 ->assertSee('Roles')
                 ->assertSeeLink('Crear Rol')
-                ->assertSeeLink('Editar')
-                ->assertSee('Eliminar')
+                ->assertSeeLink('editar')
+                ->assertSee('eliminar')
             ;
         });
     }
