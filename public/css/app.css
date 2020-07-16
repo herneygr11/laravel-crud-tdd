@@ -10928,3 +10928,7 @@ a.text-dark:focus {
   }
 }
 
+.main {
+  height: 80vh;
+}
+
