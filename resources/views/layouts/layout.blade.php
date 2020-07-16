@@ -38,7 +38,10 @@
         </main>
 
         <footer class="footer">
-            <span>Develop by <a href="#">Herney Ruiz</a></span>
+            <span>
+                Develop by
+                <a href="https://github.com/herneygr11" target="_blank">Herney Ruiz</a>
+            </span>
         </footer>
     </div>
 
