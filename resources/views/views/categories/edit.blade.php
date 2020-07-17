@@ -1,22 +1,36 @@
 @extends('layouts.layout')
 
 @section('main')
-    <h1>Editar Categoria</h1>
-    <form action="{{ route("categories.update", $category->id) }}" method="post">
-        @csrf
-        @method("PUT")
+<div class="card w-50 m-auto">
+    <div class="card-header">
+        <h1>Editar Categoria</h1>
+    </div>
+    <div class="card-body">
+        <form action="{{ route("categories.update", $category->id) }}" method="post">
+            @csrf
+            @method("PUT")
 
-        <input type="text" name="name" value="{{$category->name}}">
-        @if ($errors->has("name"))
-            <span>{{ $errors->first("name") }}</span>
-        @endif
-        <br>
-        <textarea name="description" cols="30" rows="10">{{$category->description}}</textarea>
-        @if ($errors->has("description"))
-            <span>{{ $errors->first("description") }}</span>
-        @endif
+            <div class="form-group my-2">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" class="form-control" value="{{$category->name}}">
+                @if ($errors->has("name"))
+                <span class="text-danger">{{ $errors->first("name") }}</span>
+            </div>
+            @endif
 
-        <a href="{{ route("categories.index") }}">Cancelar</a>
-        <button id="update-category">Guardar</button>
-    </form>
+            <div class="form-group my-2">
+                <label for="description">Descripcion</label>
+                <textarea name="description" cols="30" rows="10" class="form-control">{{$category->description}}</textarea>
+                @if ($errors->has("description"))
+                <span class="text-danger">{{ $errors->first("description") }}</span>
+                @endif
+            </div>
+
+            <div class="d-flex align-items-center justify-content-end">
+                <a href="{{ route("categories.index") }}" class="btn btn-warning text-white mx-1">Cancelar</a>
+                <button id="update-category" class="btn btn-primary mx-1">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
