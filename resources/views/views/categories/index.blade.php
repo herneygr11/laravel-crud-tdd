@@ -3,8 +3,8 @@
 @section('main')
 
 <div class="d-flex align-items-center justify-content-between my-5">
-    <h3>Categorias</h3>
-    <a href="{{ route("categories.create") }}" class="btn btn-primary">Crear categoria</a>
+    <h3>Categorías</h3>
+    <a href="{{ route("categories.create") }}" class="btn btn-primary">Crear categoría</a>
 </div>
 
 <table class="table table-active table-hover w-50 m-auto">
