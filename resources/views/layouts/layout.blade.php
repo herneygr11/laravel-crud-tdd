@@ -21,10 +21,10 @@
             <nav class="nav collapse navbar-collapse">
                 <ul class="nav__content-item navbar-nav ml-auto">
                     <li class="nav__item nav-item">
-                        <a href="#" class="nav-link">Categorias</a>
+                        <a href="{{ route('categories.index') }}" class="nav-link">Categorías</a>
                     </li>
                     <li class="nav__item nav-item">
-                        <a href="#" class="nav-link">Estados</a>
+                        <a href="{{ route('roles.index') }}" class="nav-link">Estados</a>
                     </li>
                     <li class="nav__item nav-item">
                         <a href="#" class="nav-link">Grupos</a>
