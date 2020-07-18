@@ -1,15 +1,18 @@
 @extends("layouts.layout")
 
 @section('main')
-<h2>Roles</h2>
-<a href="{{ route("roles.create") }}">Crear Rol</a>
 
-<table>
+<div class="d-flex align-items-center justify-content-between my-5">
+    <h3>Roles</h3>
+    <a href="{{ route("roles.create") }}" class="btn btn-primary">Crear Rol</a>
+</div>
+
+<table class="table table-active table-hover w-50 m-auto">
     <thead>
         <tr>
             <th>#</th>
             <th>name</th>
-            <th>descripcion</th>
+            <th>descripción</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -19,12 +22,12 @@
             <td>{{ $role->id }}</td>
             <td>{{ $role->name }}</td>
             <td>{{ $role->description }}</td>
-            <td>
-                <a href="{{ route('roles.edit', $role->id) }}">
+            <td class="d-flex align-content-center">
+                <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-primary mx-1" >
                     editar
                 </a>
                 <form action="{{ route('roles.delete', $role->id) }}" method="post">
-                    <button type="submit">eliminar</button>
+                    <button type="submit" class="btn btn-danger mx-1" >eliminar</button>
                 </form>
             </td>
         </tr>
